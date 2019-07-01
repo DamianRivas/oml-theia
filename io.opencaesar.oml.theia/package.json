@@ -1,9 +1,14 @@
 {
   "private": true,
   "scripts": {
+    "start:browser": "cd browser-app && yarn start",
+    "start:electron": "cd electron-app && yarn start",
     "prepare": "lerna run prepare",
     "rebuild:browser": "theia rebuild:browser",
     "rebuild:electron": "theia rebuild:electron",
+    "refresh": "cd oml-sprotty && yarn clean && yarn build && cd .. && yarn theia clean && yarn theia build",
+    "refresh:browser": "yarn refresh && cd browser-app && yarn prepare",
+    "refresh:electron": "yarn refresh && cd electron-app && yarn prepare",
     "publish:latest": "lerna publish --registry=https://registry.npmjs.org/ --exact --skip-git",
     "publish:next": "lerna publish --registry=https://registry.npmjs.org/ --exact --canary=next --npm-tag=next --skip-git --yes",
     "update": "git pull origin master && git submodule foreach git pull origin master"
