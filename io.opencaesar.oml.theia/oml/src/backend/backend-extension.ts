@@ -47,6 +47,7 @@ class OmlLanguageServerContribution extends BaseLanguageServerContribution {
             const command = 'java'
             const args: string[] = [
                 '-jar',
+                // '-agentlib:jdwp=transport=dt_socket,address=127.0.0.1:8000,server=n,suspend=n',
                 jar
             ]
 

@@ -3,6 +3,7 @@
   "scripts": {
     "start:browser": "cd browser-app && yarn start",
     "start:electron": "cd electron-app && yarn start",
+    "build:oml": "cd oml && yarn clean && yarn build",
     "prepare": "lerna run prepare",
     "rebuild:browser": "theia rebuild:browser",
     "rebuild:electron": "theia rebuild:electron",
