@@ -23,5 +23,10 @@
     "oml-sprotty",
     "browser-app",
     "electron-app"
-  ]
+  ],
+  "dependencies": {
+    "@theia/node-pty": "0.7.8-theia004",
+    "nsfw": "1.2.5",
+    "find-git-repositories": "0.1.0"
+  }
 }
