@@ -7,10 +7,10 @@
 
 import { Container, injectable } from "inversify"
 import { KeyTool, TYPES } from 'sprotty/lib'
-import { DiagramConfiguration } from "theia-sprotty/lib"
-import { TheiaDiagramServer } from "theia-sprotty/lib"
-import { TheiaKeyTool } from 'theia-sprotty/lib'
+import { DiagramConfiguration, EditDiagramLocker } from "sprotty-theia/lib"
+import { TheiaDiagramServer, LSTheiaDiagramServer, LSTheiaDiagramServerProvider, TheiaKeyTool } from "sprotty-theia/lib"
 import { createOmlDiagramContainer } from 'oml-sprotty/lib'
+import { OmlDiagramServer } from "./oml-diagram-server";
 
 @injectable()
 export class OmlDiagramConfiguration implements DiagramConfiguration {
@@ -18,8 +18,21 @@ export class OmlDiagramConfiguration implements DiagramConfiguration {
 
     createContainer(widgetId: string): Container {
         const container = createOmlDiagramContainer(widgetId)
-        container.bind(TYPES.ModelSource).to(TheiaDiagramServer).inSingletonScope()
-        container.rebind(KeyTool).to(TheiaKeyTool).inSingletonScope()
-        return container
+        container.bind(OmlDiagramServer).toSelf().inSingletonScope();
+        container.bind(TheiaDiagramServer).toService(OmlDiagramServer);
+        container.bind(LSTheiaDiagramServer).toService(OmlDiagramServer);
+        container.bind(TYPES.ModelSource).toService(TheiaDiagramServer);
+        container.bind(EditDiagramLocker).toSelf().inSingletonScope();
+        container.rebind(KeyTool).to(TheiaKeyTool).inSingletonScope();
+
+        container.bind(LSTheiaDiagramServerProvider).toProvider<LSTheiaDiagramServer>(context => {
+            return () => {
+                return new Promise<LSTheiaDiagramServer>(resolve => {
+                    resolve(context.container.get(LSTheiaDiagramServer));
+                });
+            };
+        });
+
+        return container;
     }
 }

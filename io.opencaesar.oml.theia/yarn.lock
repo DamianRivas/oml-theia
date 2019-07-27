@@ -1032,6 +1032,11 @@ atob@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
 
+autocompleter@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/autocompleter/-/autocompleter-4.0.2.tgz#74fd9eaa733258e5ac2a72362c4bab0951ab6a01"
+  integrity sha512-joYpKB3gsYSVIzBdiuUU/LOpvNEN68rSTPlroH+RQ38Ff8OmSUE0ue+C6aSc+powTRrSUnZfvYGvOsa++3HRtA==
+
 autoprefixer@^6.3.1:
   version "6.7.7"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-6.7.7.tgz#1dbd1c835658e35ce3f9984099db00585c782014"
@@ -7494,11 +7499,24 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
-sprotty@0.5.0-next.90d9d8c2:
-  version "0.5.0-next.90d9d8c2"
-  resolved "https://registry.yarnpkg.com/sprotty/-/sprotty-0.5.0-next.90d9d8c2.tgz#9821aacfe70ecb415678ee37d10e3c848f3c2a27"
-  integrity sha512-pkeNzDeL672ajQv9PXoKnVUnMQVBuGBN/PcPk7oqRKJrqdDHOcyyHpZl0CYO+7rKY2MuhUn1ny7FYboAaGPHuA==
+sprotty-theia@next:
+  version "0.7.0-next.6b63891"
+  resolved "https://registry.yarnpkg.com/sprotty-theia/-/sprotty-theia-0.7.0-next.6b63891.tgz#30cfffd2856d95873edb9db596e266bdb3c5ba9a"
+  integrity sha512-ISy9CljhBj6vK26Tn9mqJ3i+20ZX6YSsacXO/83dJp4Am+cjnLB/QuVzuIg1i/R30ZLkCzM3BCNDxDJsza0ISw==
   dependencies:
+    "@theia/core" next
+    "@theia/editor" next
+    "@theia/filesystem" next
+    "@theia/languages" next
+    "@theia/monaco" next
+    sprotty next
+
+sprotty@next:
+  version "0.7.0-next.cea0e2b"
+  resolved "https://registry.yarnpkg.com/sprotty/-/sprotty-0.7.0-next.cea0e2b.tgz#5a67c2c83ed3027a9fde18c549802a12dc673fb2"
+  integrity sha512-yr6OAsDWp3pgFSVAiluyA/ZnScSCCc78mm2/Btk4kRHljleIUDpLoBAzZW+EBeyfHqfBpj37FpHfTXz2V+hm2A==
+  dependencies:
+    autocompleter "^4.0.2"
     file-saver "1.3.3"
     inversify "^4.3.0"
     snabbdom "^0.7.0"
@@ -7856,18 +7874,6 @@ text-table@^0.2.0:
 textextensions@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.4.0.tgz#6a143a985464384cc2cff11aea448cd5b018e72b"
-
-theia-sprotty@next:
-  version "0.2.0-next.90d9d8c2"
-  resolved "https://registry.yarnpkg.com/theia-sprotty/-/theia-sprotty-0.2.0-next.90d9d8c2.tgz#e256173daebfaabbaa3c6c6487e6cca6eb51b85e"
-  integrity sha512-netLZOcs5TfGmDZA1hAJcUIBBWPFvpFCQdqfANtkJBYlIb4X0Z/9wlHae/ARKZ6hpiYnL02LJQO49iUAUBh5BQ==
-  dependencies:
-    "@theia/core" next
-    "@theia/editor" next
-    "@theia/filesystem" next
-    "@theia/languages" next
-    "@theia/monaco" next
-    sprotty "0.5.0-next.90d9d8c2"
 
 throttleit@0.0.2:
   version "0.0.2"

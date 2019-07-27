@@ -18,7 +18,8 @@
     "@theia/languages": "next",
     "@theia/monaco": "next",
     "@types/node": "^8.0.14",
-    "theia-sprotty": "next",
+    "sprotty-theia": "next",
+    "sprotty": "next",
     "oml-sprotty": "0.1.8"
   },
   "scripts": {
