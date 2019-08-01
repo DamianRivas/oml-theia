@@ -3,6 +3,7 @@
   "scripts": {
     "start:browser": "cd browser-app && yarn start",
     "start:electron": "cd electron-app && yarn start",
+    "start:electron-socket-server": "cd electron-app && yarn start --port=3000 --LSP_PORT=5009",
     "build:oml": "cd oml && yarn clean && yarn build",
     "prepare": "lerna run prepare",
     "rebuild:browser": "theia rebuild:browser",
