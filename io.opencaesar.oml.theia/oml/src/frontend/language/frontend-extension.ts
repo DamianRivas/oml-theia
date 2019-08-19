@@ -40,11 +40,6 @@ export default new ContainerModule((bind: interfaces.Bind, unbind: interfaces.Un
     bind(DiagramConfiguration).to(OmlDiagramConfiguration).inSingletonScope()
     bind(OmlDiagramLanguageClient).toSelf().inSingletonScope()
     bind(OmlDiagramManager).toSelf().inSingletonScope()
-
-    bind(FrontendApplicationContribution).toService(OmlDiagramManager)
-    bind(OpenHandler).toService(OmlDiagramManager)
-    bind(WidgetFactory).toService(OmlDiagramManager)
-    bind(ThemeManager).toSelf().inSingletonScope()
     bind(DiagramManagerProvider).toProvider<DiagramManager>(context => {
         return () => {
             return new Promise<DiagramManager>((resolve) => {
@@ -52,5 +47,10 @@ export default new ContainerModule((bind: interfaces.Bind, unbind: interfaces.Un
                 resolve(diagramManager);
             })
         }
-    }) // .whenTargetNamed('oml-diagram')
+    }) // .whenTargetNamed('oml-diagram');
+
+    bind(FrontendApplicationContribution).toService(OmlDiagramManager)
+    bind(OpenHandler).toService(OmlDiagramManager)
+    bind(WidgetFactory).toService(OmlDiagramManager)
+    bind(ThemeManager).toSelf().inSingletonScope()
 })
