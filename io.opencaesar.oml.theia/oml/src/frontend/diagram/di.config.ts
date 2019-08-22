@@ -9,7 +9,7 @@ import { Container, injectable } from "inversify"
 import { KeyTool, TYPES, configureModelElement, configureCommand } from 'sprotty/lib'
 import { DiagramConfiguration, EditDiagramLocker, IRootPopupModelProvider,
     CodeActionPalettePopupProvider, PaletteMouseListener, CodeActionProvider,
-    PaletteButton, WorkspaceEditCommand} from "sprotty-theia/lib"
+    PaletteButton, WorkspaceEditCommand, DeleteWithWorkspaceEditCommand, CompletionLabelEditor, RenameLabelEditor} from "sprotty-theia/lib"
 import { TheiaDiagramServer, LSTheiaDiagramServer, LSTheiaDiagramServerProvider, TheiaKeyTool } from "sprotty-theia/lib"
 import { createOmlDiagramContainer } from 'oml-sprotty/lib'
 import { OmlDiagramServer } from "./oml-diagram-server";
@@ -41,7 +41,11 @@ export class OmlDiagramConfiguration implements DiagramConfiguration {
         container.rebind(TYPES.PopupMouseListener).to(PaletteMouseListener);
         configureModelElement(container, "button:create", PaletteButton, PaletteButtonView);
 
+        configureCommand(container, DeleteWithWorkspaceEditCommand);
         configureCommand(container, WorkspaceEditCommand);
+
+        container.bind(CompletionLabelEditor).toSelf().inSingletonScope();
+        container.bind(RenameLabelEditor).toSelf().inSingletonScope();
 
         return container;
     }
