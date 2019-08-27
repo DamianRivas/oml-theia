@@ -49,7 +49,7 @@ class OmlLanguageServerContribution extends BaseLanguageServerContribution {
             const args: string[] = [
                 '-jar',
                 // Uncomment the next line to attach a debugger. Use a socket listener at port 8000
-                '-agentlib:jdwp=transport=dt_socket,address=127.0.0.1:8000,server=n,suspend=n',
+                // '-agentlib:jdwp=transport=dt_socket,address=127.0.0.1:8000,server=n,suspend=n',
                 jar
             ]
 
