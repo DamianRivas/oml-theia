@@ -14,6 +14,7 @@ before_script:
   - cd io.opencaesar.oml.theia
 
 script:
+- yarn install vscode-ripgrep
 - yarn
 
 env:
