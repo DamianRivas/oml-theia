@@ -14,7 +14,8 @@ before_script:
   - cd io.opencaesar.oml.theia
 
 script:
-  - ./travis-script.sh
+  - curl -v https://api.github.com/repos/microsoft/ripgrep-prebuilt/releases/tags/v11.0.1-2
+  # - ./travis-script.sh
 
 env:
   global:
