@@ -14,7 +14,7 @@ before_script:
   - cd io.opencaesar.oml.theia
 
 script:
-  - yarn --verbose
+  - ./travis-script.sh
 
 env:
   global:
