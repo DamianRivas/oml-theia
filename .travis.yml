@@ -14,8 +14,7 @@ before_script:
   - cd io.opencaesar.oml.theia
 
 script:
-  - chmod a+x /home/travis/build/opencaesar/oml-theia/io.opencaesar.oml.theia/node_modules/vscode-ripgrep/bin/rg
-  - yarn
+  - yarn --verbose
 
 env:
   global:
