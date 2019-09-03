@@ -7,6 +7,7 @@ language: node_js
 node_js: '10'
 
 install:
+  - sudo apt install libx11-dev libxkbfile-dev libxkbfile-dev
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.12.3
   - export PATH=$HOME/.yarn/bin:$PATH ;
 
