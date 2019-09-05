@@ -1,7 +1,5 @@
 sudo: required
 
-# dist: trusty
-
 language: node_js
 
 node_js: '10'
@@ -12,14 +10,11 @@ install:
   - export PATH=$HOME/.yarn/bin:$PATH ;
 
 before_script:
-  - cd io.opencaesar.oml.theia && rm -rf oml-sprotty && git clone https://github.com/DamianRivas/oml-sprotty.git && cd oml-sprotty && git checkout base && cd ..
+  - cd io.opencaesar.oml.theia
 
 script:
   - yarn
-  # - curl -v https://api.github.com/repos/microsoft/ripgrep-prebuilt/releases/tags/v11.0.1-2
-  # - ./travis-script.sh
 
 env:
   global:
   - secure: zs4oYaOFJZbU1VVNKplJwOsewU3sNujt9cYUzD1SpMrjqYQHEbrBXpX+WFET0nhWnCvb45i/Ui/vsUkAEPRFtn09ruF4mR+5pi5B5vt35fDqmK+vbXnpSuFGnHBQHV9TnvcLqaFkS+dlMV68DZXboxHt/X2Y8wFxVwvUKSQ0YBEdyiYWsQK3FM99c0bPzb26lG8Ps/iqOrOp/mfzd6YsN0oInqAAgTICLYIzq5w9MfjxGI9QEc6yxkwm6Mcgfq+BUut52ylDb+f5Sn12sr+m7BGZZ3J/NPL35KhR31KHuCMkr4fyxtL0mnfpstKRZYqYkBOj3rJefUZ1MtWWuCYfHMiBc9W/FOVaTA/25ls6cwUymwzqRa2nET3j01j0XQvPJgeuaX48Gz/nUVBmiqPlfZmtN5peFkZHPtYOa1rtcavtr7RvE900mhh1PubRrILJKGxmY4U/VGX3szRn7bc5jTHMsrzAChuFvvIcmRX3B+7D5258zl2fsGyhHvw3O1tSF0Y3JSP+BstyTfCH6sYPvwWYRCOIYxddyqvQirD7koN68Why9A4kZ2pLVMBxFjVksSfgAQ3cVz4c5Vbpo3fa0ciMecgMEObutOVtRKERWhh7xtxZeHPevFXBSAskEruPcKwIMshBfBlM2MVPAyPor141dzv2zrnLHqY0Nk+BzTk=
-  # - GITHUB_TOKEN=327e190c8069609e0311b70464ca3aab55f1bc0f

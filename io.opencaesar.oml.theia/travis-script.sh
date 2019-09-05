@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# The purpose of this script is to circumvent console output limits in CI environments.
+# This script hides the output of the build process until the process fails and then
+# dumps the tail (adjustable) of the output to the console.
+
 # Abort on Error
 set -e
 
